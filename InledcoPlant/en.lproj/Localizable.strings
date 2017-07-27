@@ -1,0 +1,36 @@
+/* 
+  Localizable.strings
+  InledcoPlant
+
+  Created by huang zhengguo on 2017/1/18.
+  Copyright © 2017年 huang zhengguo. All rights reserved.
+*/
+
+/*******************设备界面********************/
+"DeviceTitle"="inledco";
+"Scan"="Scan";
+"Stop"="Stop";
+"RenameButtonTitle"="Rename";
+"cycleButtonTitle"="Cycle-set";
+"powerButtonTitle"="Power";
+"manualButtonTitle"="Manual";
+"lockButtonTitle"="Lock";
+"unlockButtonTitle"="UnLock";
+"red"="Red";
+"green"="Green";
+"blue"="Blue";
+"cycle-1"="cycle-1";
+"cycle-2"="cycle-2";
+"cycle-3"="cycle-3";
+"cycle-4"="cycle-4";
+"startdatetitle"="Start Date:";
+"immediately"="immediately";
+"quickly"="quickly";
+"normally"="normally";
+"slowly"="slowly";
+"connectDecive"="Connect Device";
+"connecting"="connecting...";
+"connectSuccess"="Connect Success";
+"connectFailed"="Connect Failed";
+"maxCycleCount"="Can't create more than 8 cycles.";
+"confirm"="Confirm";

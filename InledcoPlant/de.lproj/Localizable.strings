@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  InledcoPlant
+
+  Created by huang zhengguo on 2017/1/18.
+  Copyright © 2017年 huang zhengguo. All rights reserved.
+*/
+/*******************设备界面********************/
+"DeviceTitle"="Gerät Liste";
+// cell控件标题
+"RenameButtonTitle"="umbenennen";
+"RenameButtonTitle"="Rename";
+"cycleButtonTitle"="Cycle-set";
+"powerButtonTitle"="Power";
+"manualButtonTitle"="Manual";
+"lockButtonTitle"="Lock";
+/*******************设备界面********************/
