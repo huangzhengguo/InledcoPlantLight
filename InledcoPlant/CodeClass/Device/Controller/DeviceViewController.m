@@ -172,7 +172,7 @@ typedef NS_ENUM(NSInteger, CellType) {
         headerView.lightNameLabel.text = deviceModel.deviceName;
         headerView.lockButtonAction = ^(NSInteger buttonTag, BOOL selected,UIView *headerView){
             // 只有在点击的时候才能对蓝牙管理对象进行设置
-            self.blueToothManager.completeReceiveDataBlock = ^(NSString *receiveData) {
+            self.blueToothManager.completeReceiveDataBlock = ^(NSString *receiveData, SendCommandType commandType) {
                 weakself.currentHeaderView = headerView;
                 weakself.deviceUUIDString = deviceModel.UUIDString;
                 // 赋值设备编码
@@ -181,6 +181,10 @@ typedef NS_ENUM(NSInteger, CellType) {
                 weakself.deviceParameterModel.UUIDString = deviceModel.UUIDString;
                 // 保存接收到的数据
                 weakself.receiveDataStr = receiveData;
+                
+                if (commandType != TIMESYNCHRONIZATION_COMMAND){
+                    return ;
+                }
                 
                 // 连接成功，设置按钮可用
                 [weakself setSettingButtonEnable:YES headerView:headerView];
@@ -342,6 +346,7 @@ typedef NS_ENUM(NSInteger, CellType) {
         case ManualDimmingCell:
         {
             ColorDimmingTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"ColorDimmingTableViewCell"];
+
             if (cell == nil){
                 cell = [[ColorDimmingTableViewCell alloc] initWithChannelNum:self.deviceParameterModel.channelNum];
             }
@@ -412,6 +417,11 @@ typedef NS_ENUM(NSInteger, CellType) {
             self.deviceParameterModel.channelNum = [[[DeviceDataType defaultDeviceDataType].diviceCodeChannelNumDic objectForKey:deviceModel.deviceTypeCode] integerValue];
             self.deviceParameterModel.deviceTypeCode = deviceModel.deviceTypeCode;
             self.deviceParameterModel.UUIDString = deviceModel.UUIDString;
+            
+//            /* 一下两行需要删除 */
+//            self.receiveDataStr = @"680501010202010A0600120000050505050505050505050505050505";
+//            self.deviceParameterModel.channelNum = 4;
+//            /* 以上两行需要删除 */
             
             [self.blueToothManager parseECOPlantDataFromReceiveData:self.receiveDataStr deviceInfoModel:self.deviceParameterModel];
             

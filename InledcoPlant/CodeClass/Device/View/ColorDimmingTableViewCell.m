@@ -24,8 +24,9 @@
         for (int i=0; i<channelNum; i++) {
             [colorPercentArray addObject:@(100)];
         }
-        ManualDimmingView *manualDimmingView = [[ManualDimmingView alloc] initWithFrame:CGRectMake(0, 0, KWIDTH, 500.0f) colorPercentArray:colorPercentArray textColor:[UIColor blackColor]];
+        ManualDimmingView *manualDimmingView = [[ManualDimmingView alloc] initWithFrame:CGRectMake(8, 0, KWIDTH - 16, 500.0f) colorPercentArray:colorPercentArray textColor:[UIColor blackColor]];
         
+        manualDimmingView.backgroundColor = [UIColor lightGrayColor];
         // 手动调光
         manualDimmingView.colorDimmingBlock = ^(NSInteger tag, float colorValue) {
             if (self.passColorValueBlock){

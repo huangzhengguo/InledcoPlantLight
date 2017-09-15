@@ -346,7 +346,7 @@
                 // 返回的是设备信息
                 if (self.completeReceiveDataBlock){
                     // 把解析到的数据传递出去
-                    self.completeReceiveDataBlock(self.receivedData);
+                    self.completeReceiveDataBlock(self.receivedData, self.currentCommandType);
                 }
                 break;
             }

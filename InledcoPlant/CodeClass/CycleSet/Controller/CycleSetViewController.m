@@ -117,7 +117,7 @@
     
     // 设置蓝牙管理对象
     __weak typeof(self) weakself = self;
-    self.blueToothManager.completeReceiveDataBlock = ^(NSString *receiveData) {
+    self.blueToothManager.completeReceiveDataBlock = ^(NSString *receiveData,SendCommandType commandType) {
         // 接收到数据之后，刷新界面
         // 重新解析数据
         [weakself.blueToothManager parseECOPlantDataFromReceiveData:receiveData deviceInfoModel:weakself.deviceParameterModel];

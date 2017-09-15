@@ -22,6 +22,7 @@ typedef NS_ENUM(NSInteger, DeviceRunMode) {
 // 指令类型：用于判断当前接收到的数据是由于什么类型的指令引起的
 typedef NS_ENUM(NSInteger, SendCommandType) {
     SCAN_DEVICE_COMMAND,         // 扫描
+    CONNECT_TO_DEVICE_COMMAND,   // 连接命令
     SCAN_CONNECT_DEVICE_COMMAND, // 扫描设备时连接设备
     TIMESYNCHRONIZATION_COMMAND, // 同步时间命令
     POWERON_COMMAND,             // 打开灯光命令
@@ -45,6 +46,7 @@ typedef NS_ENUM(NSInteger, SendCommandType) {
 typedef void(^scanBlock)(NSArray *);
 typedef void(^noneParameterBlock)();
 typedef void(^passStringBlock)(NSString *);
+typedef void(^passStringCommandType)(NSString *,SendCommandType);
 
 @interface BlueToothManager : NSObject
 /*
@@ -134,7 +136,7 @@ typedef void(^passStringBlock)(NSString *);
 // 停止扫描设备回调
 @property(nonatomic, copy) noneParameterBlock stopScanDeviceBlock;
 // 连接设备成功回调
-@property(nonatomic, copy) passStringBlock completeReceiveDataBlock;
+@property(nonatomic, copy) passStringCommandType completeReceiveDataBlock;
 // 连接设备失败回调
 @property(nonatomic, copy) noneParameterBlock connectDeviceFailedBlock;
 // 断开连接回调
